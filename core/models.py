@@ -61,10 +61,7 @@ class LogEntry:
         return groups
 
     def render_html(self):
-        hide_internal_button = False
-        if os.getenv("HIDE_INTERNAL_BUTTON"):
-            hide_internal_button = True
-        return self.app.ctx.render_template("logbase", log_entry=self, hide_internal_button=hide_internal_button)
+        return self.app.ctx.render_template("logbase", log_entry=self)
 
     def render_plain_text(self):
         messages = self.messages
